@@ -282,6 +282,7 @@ public class Game extends Activity {
                 prefs.edit().putString("highscore", Integer.toString(score)).apply();
             Intent intent = new Intent(getApplicationContext(), EndScreen.class);
             intent.putExtra("correct_answer", correctAnswer);
+            intent.putExtra("current_score", score);
             refreshScreen();
             startActivity(intent);
         }

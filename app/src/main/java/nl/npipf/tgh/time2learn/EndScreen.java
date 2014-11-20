@@ -31,6 +31,10 @@ public class EndScreen extends Activity {
         TextView txtCorrectAnswer = (TextView) findViewById(R.id.textCorrectAnswer);
         txtCorrectAnswer.setText(correctAnswer);
 
+        String currentScore = intent.getStringExtra("current_score");
+        TextView txtCurrentScore = (TextView) findViewById(R.id.textGottenScore);
+        txtCurrentScore.setText(this.getString(R.string.current_score) + " " + currentScore);
+
         Button butTryAgain = (Button) findViewById(R.id.butTryAgain);
         butTryAgain.setOnClickListener(new View.OnClickListener() {
             @Override

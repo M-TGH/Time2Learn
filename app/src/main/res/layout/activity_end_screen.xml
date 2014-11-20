@@ -51,7 +51,18 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/highscore"
         android:id="@+id/textHighscoreEnd"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/textAnswer2"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/textGottenScore"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/current_score"
+        android:id="@+id/textGottenScore"
+        android:layout_below="@+id/textAnswer2"
+        android:layout_alignLeft="@+id/butTryAgain"
+        android:layout_alignStart="@+id/butTryAgain"
+        android:layout_marginTop="30dp" />
 </RelativeLayout>

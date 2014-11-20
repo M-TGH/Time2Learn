@@ -29,7 +29,8 @@
         </activity>
         <activity
             android:name=".Game5min"
-            android:label="@string/title_activity_game5min" >
+            android:label="@string/title_activity_game5min"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

@@ -82,7 +82,7 @@ public class Game5min extends Activity {
     }
 
     public void refreshScreen(){
-        TextView txtScore = (TextView) findViewById(R.id.textCurScore2);
+        TextView txtScore = (TextView) findViewById(R.id.textGottenScore);
         SharedPreferences prefs = getSharedPreferences("time_scores", 0);
         String score = prefs.getString("current_score", "0");
         txtScore.setText(this.getString(R.string.current_score) + " " + score);
@@ -183,6 +183,7 @@ public class Game5min extends Activity {
                 prefs.edit().putString("highscore", Integer.toString(score)).apply();
             Intent intent = new Intent(getApplicationContext(), EndScreen.class);
             intent.putExtra("correct_answer", correctAnswer);
+            intent.putExtra("current_score", score);
             refreshScreen();
             startActivity(intent);
         }
