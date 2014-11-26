@@ -163,17 +163,17 @@ public class Game5min extends Activity {
             else if(currentTime.minutes == 25)
                 correctAnswer = mins[1] + " " + quarts[1] + " " + currentTime.hours;
             else if(currentTime.minutes == 30)
-                correctAnswer = mins[4] + " " + quarts[2] + " " + currentTime.hours;
+                correctAnswer = mins[4] + " " + quarts[2] + " " + (currentTime.hours + 1);
             else if(currentTime.minutes == 35)
-                correctAnswer = mins[0] + " " + quarts[2] + " " + currentTime.hours;
+                correctAnswer = mins[0] + " " + quarts[2] + " " + (currentTime.hours + 1);
             else if(currentTime.minutes == 40)
-                correctAnswer = mins[1] + " " + quarts[2] + " " + currentTime.hours;
+                correctAnswer = mins[1] + " " + quarts[2] + " " + (currentTime.hours + 1);
             else if(currentTime.minutes == 45)
-                correctAnswer = mins[4] + " " + quarts[3] + " " + currentTime.hours;
+                correctAnswer = mins[4] + " " + quarts[3] + " " + (currentTime.hours + 1);
             else if(currentTime.minutes == 50)
-                correctAnswer = mins[0] + " " + quarts[4] + " " + currentTime.hours;
+                correctAnswer = mins[0] + " " + quarts[4] + " " + (currentTime.hours + 1);
             else if(currentTime.minutes == 55)
-                correctAnswer = mins[1] + " " + quarts[4] + " " + currentTime.hours;
+                correctAnswer = mins[1] + " " + quarts[4] + " " + (currentTime.hours + 1);
 
             Toast.makeText(getApplicationContext(), this.getString(R.string.lost) , Toast.LENGTH_LONG).show();
             int score = Integer.parseInt(prefs.getString("current_score", "0"));

@@ -70,155 +70,9 @@ public class Game extends Activity {
     }
 
     public TimeObject randomTime(){
-        int timeNumber = random.nextInt(48);
-        TimeObject result = new TimeObject(0,0,"full0");
-        //Don't mind this inefficient code, will be reworked as in Game5min.java
-        switch (timeNumber){
-            case 0:
-                result = new TimeObject(0,0, "full0");
-                break;
-            case 1:
-                result = new TimeObject(0, 15, "qtp0");
-                break;
-            case 2:
-                result = new TimeObject(0, 30, "half1");
-                break;
-            case 3:
-                result = new TimeObject(0, 45, "qtt1");
-                break;
-            case 4:
-                result = new TimeObject(1, 0, "full1");
-                break;
-            case 5:
-                result = new TimeObject(1, 15, "qtp1");
-                break;
-            case 6:
-                result = new TimeObject(1, 30, "half2");
-                break;
-            case 7:
-                result = new TimeObject(1, 45, "qtt2");
-                break;
-            case 8:
-                result = new TimeObject(2, 0, "full2");
-                break;
-            case 9:
-                result = new TimeObject(2, 15, "qtp2");
-                break;
-            case 10:
-                result = new TimeObject(2, 30, "half3");
-                break;
-            case 11:
-                result = new TimeObject(2, 45, "qtt3");
-                break;
-            case 12:
-                result = new TimeObject(3, 0, "full3");
-                break;
-            case 13:
-                result = new TimeObject(3, 15, "qtp3");
-                break;
-            case 14:
-                result = new TimeObject(3, 30, "half4");
-                break;
-            case 15:
-                result = new TimeObject(3, 45, "qtt4");
-                break;
-            case 16:
-                result = new TimeObject(4, 0, "full4");
-                break;
-            case 17:
-                result = new TimeObject(4, 15, "qtp4");
-                break;
-            case 18:
-                result = new TimeObject(4, 30, "half5");
-                break;
-            case 19:
-                result = new TimeObject(4, 45, "qtt5");
-                break;
-            case 20:
-                result = new TimeObject(5, 0, "full5");
-                break;
-            case 21:
-                result = new TimeObject(5, 15, "qtp5");
-                break;
-            case 22:
-                result = new TimeObject(5, 30, "half6");
-                break;
-            case 23:
-                result = new TimeObject(5, 45, "qtt6");
-                break;
-            case 24:
-                result = new TimeObject(6, 0, "full6");
-                break;
-            case 25:
-                result = new TimeObject(6, 15, "qtp6");
-                break;
-            case 26:
-                result = new TimeObject(6, 30, "half7");
-                break;
-            case 27:
-                result = new TimeObject(6, 45, "qtt7");
-                break;
-            case 28:
-                result = new TimeObject(7, 0, "full7");
-                break;
-            case 29:
-                result = new TimeObject(7, 15, "qtp7");
-                break;
-            case 30:
-                result = new TimeObject(7, 30, "half8");
-                break;
-            case 31:
-                result = new TimeObject(7, 45, "qtt8");
-                break;
-            case 32:
-                result = new TimeObject(8, 0, "full8");
-                break;
-            case 33:
-                result = new TimeObject(8, 15, "qtp8");
-                break;
-            case 34:
-                result = new TimeObject(8, 30, "half9");
-                break;
-            case 35:
-                result = new TimeObject(8, 45, "qtt9");
-                break;
-            case 36:
-                result = new TimeObject(9, 0, "full9");
-                break;
-            case 37:
-                result = new TimeObject(9, 15, "qtp9");
-                break;
-            case 38:
-                result = new TimeObject(9, 30, "half10");
-                break;
-            case 39:
-                result = new TimeObject(9, 45, "qtt10");
-                break;
-            case 40:
-                result = new TimeObject(10, 0, "full10");
-                break;
-            case 41:
-                result = new TimeObject(10, 15, "qtp10");
-                break;
-            case 42:
-                result = new TimeObject(10, 30, "half11");
-                break;
-            case 43:
-                result = new TimeObject(10, 45, "qtt11");
-                break;
-            case 44:
-                result = new TimeObject(11, 0, "full11");
-                break;
-            case 45:
-                result = new TimeObject(11, 15, "qtp11");
-                break;
-            case 46:
-                result = new TimeObject(11, 30, "half12");
-                break;
-            case 47:
-                result = new TimeObject(11, 45, "qtt12");
-                break;
-        }
+        TimeObject result = new TimeObject(0, 0, "");
+        result.hours = random.nextInt(12);
+        result.minutes = (random.nextInt(3) * 15);
         return result;
     }
 
@@ -242,33 +96,36 @@ public class Game extends Activity {
         Spinner spinNumber = (Spinner) findViewById(R.id.spinnerNumber);
         Spinner spinRep = (Spinner) findViewById(R.id.spinnerRepString);
 
-        String hours = spinNumber.getSelectedItem().toString();
+        int hours = Integer.parseInt(spinNumber.getSelectedItem().toString());
         String rep = spinRep.getSelectedItem().toString();
         String[] reps = getResources().getStringArray(R.array.time_repstring);
-        String stringrep;
+        int mins = 0;
         String correctAnswer;
         if(rep.equals(reps[0]))
-            stringrep = "full";
+            mins = 0;
         else if(rep.equals(reps[1]))
-            stringrep = "qtp";
-        else if(rep.equals(reps[2]))
-            stringrep = "half";
-        else
-            stringrep = "qtt";
-
-        String answer = stringrep + hours;
+            mins = 15;
+        else if (rep.equals(reps[2])) {
+            mins = 30;
+            hours -= 1;
+        } else {
+            mins = 30;
+            hours -= 1;
+        }
+        if (hours == 0)
+            hours = 12;
         SharedPreferences prefs = getSharedPreferences("time_scores", 0);
-        if(answer.equals(currentTime.stringRep)){
+        if (currentTime.hours == hours && currentTime.minutes == mins) {
             Toast.makeText(getApplicationContext(), this.getString(R.string.gratz) , Toast.LENGTH_LONG).show();
             int score = Integer.parseInt(prefs.getString("current_score", "0")) + 1;
             prefs.edit().putString("current_score", Integer.toString(score)).apply();
             refreshScreen();
         } else{
-            if(currentTime.stringRep.contains("full"))
+            if (currentTime.minutes == 0)
                 correctAnswer = reps[0] + " " + currentTime.hours;
-            else if(currentTime.stringRep.contains("qtp"))
+            else if (currentTime.minutes == 15)
                 correctAnswer = reps[1] + " " + currentTime.hours;
-            else if(currentTime.stringRep.contains("half"))
+            else if (currentTime.minutes == 30)
                 correctAnswer = reps[2] + " " + (currentTime.hours + 1);
             else
                 correctAnswer = reps[3] + " " + (currentTime.hours + 1);

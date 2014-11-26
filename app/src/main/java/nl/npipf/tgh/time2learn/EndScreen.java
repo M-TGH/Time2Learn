@@ -31,7 +31,7 @@ public class EndScreen extends Activity {
         TextView txtCorrectAnswer = (TextView) findViewById(R.id.textCorrectAnswer);
         txtCorrectAnswer.setText(correctAnswer);
 
-        String currentScore = intent.getStringExtra("current_score");
+        int currentScore = intent.getIntExtra("current_score", 0);
         TextView txtCurrentScore = (TextView) findViewById(R.id.textGottenScore);
         txtCurrentScore.setText(this.getString(R.string.current_score) + " " + currentScore);
 
