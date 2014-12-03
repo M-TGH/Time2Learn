@@ -43,4 +43,5 @@
     <string name="title_activity_end_screen">Ende Spiel</string>
     <string name="correct_answer">Das richtige Antwort war:</string>
     <string name="try_again">Versuche es wieder</string>
+    <string name="title_activity_game5min">Game5min</string>
 </resources>

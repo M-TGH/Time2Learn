@@ -138,7 +138,6 @@ public class Game5min extends Activity {
             hours -= 1;
             minutes = 50;
         }
-
         if(hours == 12)
             hours = 0;
 
@@ -174,6 +173,7 @@ public class Game5min extends Activity {
                 correctAnswer = mins[0] + " " + quarts[4] + " " + (currentTime.hours + 1);
             else if(currentTime.minutes == 55)
                 correctAnswer = mins[1] + " " + quarts[4] + " " + (currentTime.hours + 1);
+
 
             Toast.makeText(getApplicationContext(), this.getString(R.string.lost) , Toast.LENGTH_LONG).show();
             int score = Integer.parseInt(prefs.getString("current_score", "0"));

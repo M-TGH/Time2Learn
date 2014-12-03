@@ -45,5 +45,5 @@
     <string name="title_activity_end_screen">Einde spel</string>
     <string name="correct_answer">Het juiste antwoord was:</string>
     <string name="try_again">Probeer opnieuw</string>
-
+    <string name="title_activity_game5min">Game5min</string>
 </resources>
