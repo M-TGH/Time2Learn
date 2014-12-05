@@ -46,4 +46,9 @@
     <string name="correct_answer">Het juiste antwoord was:</string>
     <string name="try_again">Probeer opnieuw</string>
     <string name="title_activity_game5min">Game5min</string>
+    <string name="title_activity_credits">Time2Learn</string>
+    <string name="made_by">Gemaakt door: Matthijs Hatzmann</string>
+    <string name="idea_by">App verzonnen door: Reygan Leito</string>
+    <string name="design_by">Designed door: Brigitt Rezelman</string>
+    <string name="txtCredits">Credits</string>
 </resources>

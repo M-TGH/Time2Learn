@@ -44,4 +44,9 @@
     <string name="correct_answer">Das richtige Antwort war:</string>
     <string name="try_again">Versuche es wieder</string>
     <string name="title_activity_game5min">Game5min</string>
+    <string name="title_activity_credits">Time2Learn</string>
+    <string name="made_by">Made by: Matthijs Hatzmann</string>
+    <string name="idea_by">App idea by: Reygan Leito</string>
+    <string name="design_by">Design by: Brigitt Rezelman</string>
+    <string name="txtCredits">Credits</string>
 </resources>
